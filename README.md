@@ -2,7 +2,7 @@
 # Each Encounter Counts: Modeling Language Learning and Forgetting
 
 
-This is the repository for the code in the paper FIFAKT: Each Encounter Counts: Modeling Language Learning and Forgetting. Authors: Boxuan Ma, Gayan Prasad Hettiarachchi, Sora Fukui and Yuji Ando.
+This is the repository for the code in the paper FIFAKT: Each Encounter Counts: Modeling Language Learning and Forgetting. LAK23: 13th International Learning Analytics and Knowledge Conference. Authors: Boxuan Ma, Gayan Prasad Hettiarachchi, Sora Fukui and Yuji Ando.
 
 If you find this repository useful, please cite our work
 
