@@ -2,7 +2,6 @@ import numpy as np
 import argparse
 import pandas as pd
 
-parser = argparse.ArgumentParser(description='Run DAS3H.')
 parser.add_argument('--data', type=str, nargs='?', default="../duolingo.csv")
 parser.add_argument('--emb_file', type=str, nargs='?', default='all_word_embeddings_fastword.csv')
 # parser.add_argument('--kc_emb_file', type=str, nargs='?', default='en_kc_embeddings.csv')
