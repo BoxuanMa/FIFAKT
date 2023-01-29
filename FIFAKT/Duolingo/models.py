@@ -124,7 +124,7 @@ class FIFAKT(nn.Module):
 
         self.i_embed = nn.Embedding(self.n_lemmaid, 64, padding_idx=0)
 
-        pretrained_embeddings = None
+        #pretrained_embeddings = None
 
         if pretrained_embeddings is not None:
             print("embeddings frozen:", freeze_pretrained, flush=True)
