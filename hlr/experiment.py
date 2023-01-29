@@ -13,6 +13,7 @@ import os
 import random
 import sys
 from sys import intern
+from sklearn.metrics import  roc_auc_score, accuracy_score, log_loss, mean_absolute_error
 from sklearn import metrics
 import numpy as np
 
@@ -138,12 +139,17 @@ class SpacedRepetitionModel(object):
             results['hh'].append(h)
             results['slp'].append(slp)      # loss function values
             results['slh'].append(slh)
-        rounded = [float(np.round(x)) for x in results['p']]
 
-        fpr, tpr, thresholds = metrics.roc_curve(rounded, results['pp'])
-        res = [elem for elem in np.abs(np.array(results['pp']) - np.array(results['p']))]
-        acc = 1 - sum(res) / len(res)
-        auc = metrics.auc(fpr, tpr)
+        rounded_gold = [float(round(x)) for x in results['p']]
+        rounded_pre = [float(round(x)) for x in results['pp']]
+
+        acc = accuracy_score(rounded_gold, rounded_pre)
+        auc = roc_auc_score(rounded_gold, results['pp'])
+
+        # fpr, tpr, thresholds = metrics.roc_curve(rounded_pre, results['pp'])
+        # res = [elem for elem in np.abs(np.array(results['pp']) - np.array(results['p']))]
+        # acc = 1 - sum(res) / len(res)
+        # auc = metrics.auc(fpr, tpr)
 
         mae_p = mae(results['p'], results['pp'])
         mae_h = mae(results['h'], results['hh'])
@@ -274,9 +280,9 @@ argparser = argparse.ArgumentParser(description='Fit a SpacedRepetitionModel to 
 argparser.add_argument('-b', action="store_true", default=False, help='omit bias feature')
 argparser.add_argument('-l', action="store_true", default=False, help='omit lexeme features')
 argparser.add_argument('-t', action="store_true", default=False, help='omit half-life term')
-argparser.add_argument('-m', action="store", dest="method", default='hlr', help="hlr, lr, leitner, pimsleur")
+argparser.add_argument('-m', action="store", dest="method", default='pimsleur', help="hlr, lr, leitner, pimsleur")
 argparser.add_argument('-x', action="store", dest="max_lines", type=int, default=None, help="maximum number of lines to read (for dev)")
-argparser.add_argument('input_file', action="store", nargs='?', default="../duolingo_en.csv", help='log file for training', )
+argparser.add_argument('input_file', action="store", nargs='?', default="../duolingo.csv", help='log file for training', )
 
 
 if __name__ == "__main__":
@@ -299,7 +305,7 @@ if __name__ == "__main__":
 
     # train model & print preliminary evaluation info
     model = SpacedRepetitionModel(method=args.method, omit_h_term=args.t)
-    for epoch in range(100):
+    for epoch in range(2):
         print('Epoch', epoch, 'in 100')
         model.train(trainset)
         model.eval(testset, 'test')
