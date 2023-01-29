@@ -28,8 +28,7 @@ The Tagetomo data we used is private, which is belong to Obunsha.inc, so we cann
 
 ## Code
 
-Some of the code in this repository is based on code from [Benoît Choffin](https://github.com/BenoitChoffin)'s [DAS3H repository](https://github.com/BenoitChoffin/das3h) and [Brian Zylich](https://github.com/BenoitChoffin)'s [Linguistic Skill Modeling repository](https://github.com/bzylich/linguistic-skill-modeling).
-
+Some of the code in this repository is based on code from [Benoît Choffin](https://github.com/BenoitChoffin)'s [DAS3H repository](https://github.com/BenoitChoffin/das3h) and [Brian Zylich](https://github.com/bzylich)'s [Linguistic Skill Modeling repository](https://github.com/bzylich/linguistic-skill-modeling).
 
 
 
