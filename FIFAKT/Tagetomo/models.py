@@ -94,7 +94,7 @@ class FIFAKT(nn.Module):
         self.n_question = n_question
         self.layer_dim = layer_dim
 
-        pretrained_embeddings=None
+        # pretrained_embeddings=None
 
         if pretrained_embeddings is not None:
             print("embeddings frozen:", freeze_pretrained, flush=True)
