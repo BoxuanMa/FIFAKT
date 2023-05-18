@@ -7,10 +7,11 @@ This is the repository for the code in the paper FIFAKT: Each Encounter Counts: 
 If you find this repository useful, please cite our work
 
 ```
-@inproceedings{LAK2023_Ma_FIFAKT,
-  title={ Each Encounter Counts: Modeling Language Learning and Forgetting},
+@inproceedings{ma2023each,
+  title={Each Encounter Counts: Modeling Language Learning and Forgetting},
   author={Ma, Boxuan and Hettiarachchi, Gayan Prasad and Fukui, Sora and Ando, Yuji},
   booktitle={LAK23: 13th International Learning Analytics and Knowledge Conference},
+  pages={79--88},
   year={2023}
 }
 ```
