@@ -143,7 +143,7 @@ def process_batch(batch, model):
         mask = batch['mask'].to(device)
         if options.method == "dkt" :
             loss, outputs, true_count = model(skills, format, targets, mask)
-        elif options.method == "dkt_plus" or options.method == "dkt_att":
+        elif options.method == "dkt_plus" or options.method == "FIFAKT":
             loss, outputs, true_count,atttention = model(skills, format, wordsize, correct, attempts, delta, delta_t, delta_repeat, time_bins,time_bins_t, targets, mask)
         elif options.method == "dkt_wordsize" or options.method == "dkt_f":
             loss, outputs, true_count = model(skills, format, wordsize, correct, attempts, delta, delta_t, time_bins, time_bins_t,targets, mask)
@@ -275,8 +275,8 @@ for hidden_dim in hidden_dim_options:
 
                                 if options.method == "dkt":
                                     model = DKT(n_question, embed_dim, hidden_dim, layer_dim=num_layers, output_dim=num_layers, class_weights=class_weights, z_weight=z_weight)
-                                elif options.method =="dkt_att":
-                                    model = DKT_att(n_question, embed_dim, hidden_dim, layer_dim=num_layers, class_weights=class_weights, dropout=dropout, z_weight=z_weight, pretrained_embeddings=embeddings, freeze_pretrained=freeze_pretrained)
+                                elif options.method =="FIFAKT":
+                                    model = FIFAKT(n_question, embed_dim, hidden_dim, layer_dim=num_layers, class_weights=class_weights, dropout=dropout, z_weight=z_weight, pretrained_embeddings=embeddings, freeze_pretrained=freeze_pretrained)
                                 elif options.method == "dkt_f":
                                     model = DKT_f(n_question, embed_dim, hidden_dim, layer_dim=num_layers, output_dim=num_layers, class_weights=class_weights, z_weight=z_weight)
                                 elif options.method == "dkt_plus":
