@@ -160,7 +160,7 @@ class FIFAKT(nn.Module):
 
 
 
-        att_input = torch.cat([q_embed_data], dim=2)
+        att_input = torch.cat([q_embed_data, format_onehot], dim=2)
         attn_output, attention = self.attention_net_q(att_input, output, l=len(att_input))
         ffn_input = torch.cat([attn_output, output[:,:-1,:],  q_embed_data[:, 1:], format_onehot[:, 1:], torch.unsqueeze(wordsize_data[:, 1:], 2), torch.unsqueeze(correct_data[:, 1:], 2),torch.unsqueeze(attempts_data[:, 1:], 2), torch.unsqueeze(delta_repeat[:, 1:], 2), torch.unsqueeze(delta[:, 1:], 2),torch.unsqueeze(delta_t[:, 1:], 2)], dim=2)
 
