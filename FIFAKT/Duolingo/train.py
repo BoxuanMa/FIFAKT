@@ -25,7 +25,7 @@ parser.add_argument('--embeddings_file', type=str, nargs='?', default='all_word_
 
 # parser.add_argument('--embeddings_file', type=str, nargs='?', default=None)
 parser.add_argument('--out_filename', type=str, nargs='?', default='dkt_model.pt')
-parser.add_argument('--freeze_embeddings', type=bool, nargs='?', const=True, default=True)
+parser.add_argument('--freeze_embeddings', type=bool, nargs='?', const=True, default=False)
 parser.add_argument('--grid_search', type=bool, nargs='?', const=True, default=True)
 options = parser.parse_args()
 
